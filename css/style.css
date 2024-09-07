@@ -1,4 +1,10 @@
 body {
   background-color: aliceblue;
+}
+h1,
+footer {
   text-align: center;
+}
+.container {
+  margin-bottom: 20px;
 }
