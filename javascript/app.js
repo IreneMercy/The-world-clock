@@ -1,6 +1,7 @@
-//Nairobi
-function updateNairobi(){
-    let nairobi = document.querySelector("#nairobi");
+function updateTime() {
+  //Nairobi
+  let nairobi = document.querySelector("#nairobi");
+  if (nairobi) {
     let nairobiDateElement = nairobi.querySelector(".date");
     let nairobiTimeElement = nairobi.querySelector(".time");
     let nairobiTime = moment().tz("Africa/Nairobi");
@@ -8,13 +9,12 @@ function updateNairobi(){
     nairobiTimeElement.innerHTML = `${nairobiTime.format(
       "h:mm:ss"
     )} <small>${nairobiTime.format("A")}</small>`;
-}
-setInterval(updateNairobi, 1000)
+  }
 
-//Kigali
+  //Kigali
 
-function updateKigali(){
-    let kigali = document.querySelector("#kigali");
+  let kigali = document.querySelector("#kigali");
+  if (kigali) {
     let kigaliDateElement = kigali.querySelector(".date");
     let kigaliTimeElement = kigali.querySelector(".time");
     let kigaliTime = moment().tz("Africa/Kigali");
@@ -22,12 +22,11 @@ function updateKigali(){
     kigaliTimeElement.innerHTML = `${kigaliTime.format(
       "h:mm:ss"
     )} <small>${kigaliTime.format("A")}</small>`;
-}
-setInterval(updateKigali, 1000)
+  }
 
-//Lagos
-function updateLagos(){
-    let lagos = document.querySelector("#lagos");
+  //Lagos
+  let lagos = document.querySelector("#lagos");
+  if (lagos) {
     let lagosDateElement = lagos.querySelector(".date");
     let lagosTimeElement = lagos.querySelector(".time");
     let lagosTime = moment().tz("Africa/Lagos");
@@ -35,5 +34,27 @@ function updateLagos(){
     lagosTimeElement.innerHTML = `${lagosTime.format(
       "h:mm:ss"
     )} <small>${lagosTime.format("A")}</small>`;
+  }
 }
-setInterval(updateLagos, 1000)
+
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(cityTimeZone);
+  let citiesElement = document.querySelector("#cities");
+  citiesElement.innerHTML = `
+    <div class="city">
+        <div>
+            <h2>${cityName}</h2>
+            <div class="date">${cityTime.format("dddd Do YYYY")}</div>
+        </div>
+        <div class="time">${cityTime.format("h:mm:ss")}<small>${cityTime.format(
+    "A"
+  )}</small></div>
+    </div>
+  `;
+}
+updateTime();
+setInterval(updateTime, 1000);
+let citySelectElement = document.querySelector("#city");
+citySelectElement.addEventListener("change", updateCity);
