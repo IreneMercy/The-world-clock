@@ -11,29 +11,29 @@ function updateTime() {
     )} <small>${nairobiTime.format("A")}</small>`;
   }
 
-  //Kigali
+  //london
 
-  let kigali = document.querySelector("#kigali");
-  if (kigali) {
-    let kigaliDateElement = kigali.querySelector(".date");
-    let kigaliTimeElement = kigali.querySelector(".time");
-    let kigaliTime = moment().tz("Africa/Kigali");
-    kigaliDateElement.innerHTML = kigaliTime.format("dddd Do YYYY");
-    kigaliTimeElement.innerHTML = `${kigaliTime.format(
+  let london = document.querySelector("#london");
+  if (london) {
+    let londonDateElement = london.querySelector(".date");
+    let londonTimeElement = london.querySelector(".time");
+    let londonTime = moment().tz("Europe/London");
+    londonDateElement.innerHTML = londonTime.format("dddd Do YYYY");
+    londonTimeElement.innerHTML = `${londonTime.format(
       "h:mm:ss"
-    )} <small>${kigaliTime.format("A")}</small>`;
+    )} <small>${londonTime.format("A")}</small>`;
   }
 
-  //Lagos
-  let lagos = document.querySelector("#lagos");
-  if (lagos) {
-    let lagosDateElement = lagos.querySelector(".date");
-    let lagosTimeElement = lagos.querySelector(".time");
-    let lagosTime = moment().tz("Africa/Lagos");
-    lagosDateElement.innerHTML = lagosTime.format("dddd Do YYYY");
-    lagosTimeElement.innerHTML = `${lagosTime.format(
+  //sydney
+  let sydney = document.querySelector("#sydney");
+  if (sydney) {
+    let sydneyDateElement = sydney.querySelector(".date");
+    let sydneyTimeElement = sydney.querySelector(".time");
+    let sydneyTime = moment().tz("Australia/Sydney");
+    sydneyDateElement.innerHTML = sydneyTime.format("dddd Do YYYY");
+    sydneyTimeElement.innerHTML = `${sydneyTime.format(
       "h:mm:ss"
-    )} <small>${lagosTime.format("A")}</small>`;
+    )} <small>${sydneyTime.format("A")}</small>`;
   }
 }
 
